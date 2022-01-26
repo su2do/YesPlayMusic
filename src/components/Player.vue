@@ -87,9 +87,7 @@
           >
             <svg-icon :icon-class="player.playing ? 'pause' : 'play'"
           /></button-icon>
-          <button-icon
-            :title="$t('player.next')"
-            @click.native="player.playNextTrack"
+          <button-icon :title="$t('player.next')" @click.native="playNextTrack"
             ><svg-icon icon-class="next"
           /></button-icon>
         </div>
@@ -133,6 +131,13 @@
             :title="$t('player.shuffle')"
             @click.native="player.switchShuffle"
             ><svg-icon icon-class="shuffle"
+          /></button-icon>
+          <button-icon
+            v-if="settings.enableReversedMode"
+            :class="{ active: player.reversed, disabled: player.isPersonalFM }"
+            :title="$t('player.reversed')"
+            @click.native="player.switchReversed"
+            ><svg-icon icon-class="sort-up"
           /></button-icon>
           <div class="volume-control">
             <button-icon :title="$t('player.mute')" @click.native="player.mute">
@@ -209,6 +214,13 @@ export default {
   methods: {
     ...mapMutations(['toggleLyrics']),
     ...mapActions(['showToast', 'likeATrack']),
+    playNextTrack() {
+      if (this.player.isPersonalFM) {
+        this.player.playNextFMTrack();
+      } else {
+        this.player.playNextTrack();
+      }
+    },
     goToNextTracksPage() {
       if (this.player.isPersonalFM) return;
       this.$route.name === 'next'

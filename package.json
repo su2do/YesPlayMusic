@@ -1,6 +1,6 @@
 {
   "name": "yesplaymusic",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "private": true,
   "description": "A third party music player for Netease Music",
   "author": "qier222<qier222@outlook.com>",
@@ -26,7 +26,7 @@
   },
   "main": "background.js",
   "dependencies": {
-    "@revincx/unblockneteasemusic": "^0.25.7",
+    "@unblockneteasemusic/server": "v0.27.0-rc.4",
     "axios": "^0.21.0",
     "change-case": "^4.1.2",
     "cli-color": "^2.0.0",
@@ -36,7 +36,7 @@
     "dayjs": "^1.8.36",
     "dexie": "^3.0.3",
     "discord-rich-presence": "^0.0.8",
-    "electron": "^13.0.1",
+    "electron": "~13.0.1",
     "electron-builder": "^22.10.5",
     "electron-context-menu": "^2.3.0",
     "electron-debug": "^3.1.0",
@@ -74,6 +74,7 @@
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@types/node": "^17.0.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-pwa": "~4.5.0",

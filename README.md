@@ -9,7 +9,8 @@
     高颜值的第三方网易云播放器
     <br />
     <a href="https://music.qier222.com" target="blank"><strong>🌎 访问DEMO</strong></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-    <a href="#%EF%B8%8F-安装" target="blank"><strong>📦️ 下载安装包</strong></a>
+    <a href="#%EF%B8%8F-安装" target="blank"><strong>📦️ 下载安装包</strong></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="https://t.me/yesplaymusic" target="blank"><strong>💬 加入交流群</strong></a>
     <br />
     <br />
   </p>
@@ -26,7 +27,9 @@
 - 📻 支持私人 FM / 每日推荐歌曲
 - 🚫🤝 无任何社交功能
 - 🌎️ 海外用户可直接播放（需要登录网易云账号）
-- 🔐 支持 [UnblockNeteaseMusic](https://github.com/nondanee/UnblockNeteaseMusic)（[使用 revincx 修复的 npm 包](https://github.com/revincx/UnblockNeteaseMusic)），自动使用 QQ/酷狗/酷我音源替换变灰歌曲链接 （网页版不支持）
+- 🔐 支持 [UnblockNeteaseMusic](https://github.com/UnblockNeteaseMusic/server#音源清单)，自动使用[各类音源](https://github.com/UnblockNeteaseMusic/server#音源清单)替换变灰歌曲链接 （网页版不支持）
+  - 「各类音源」指默认启用的音源。
+  - YouTube 音源需自行安装 `yt-dlp`。
 - ✔️ 每日自动签到（手机端和电脑端同时签到）
 - 🌚 Light/Dark Mode 自动切换
 - 👆 支持 Touch Bar
@@ -109,6 +112,28 @@ yarn run build
 ```
 
 7. 将 `/dist` 目录下的文件上传到你的 Web 服务器
+
+## ⚙️ Docker 部署
+
+1. 构建 Docker Image
+
+```sh
+docker build -t yesplaymusic .
+```
+
+2. 启动 Docker Container
+
+```sh
+docker run -d --name YesPlayMusic -p 80:80 yesplaymusic
+```
+
+3. Docker Compose 启动
+
+```sh
+docker-compose up -d
+```
+
+YesPlayMusic 地址为 `http://localhost`
 
 ## 👷‍♂️ 打包客户端
 
